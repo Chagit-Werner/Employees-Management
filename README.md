@@ -52,8 +52,8 @@ ng s -o
 http://localhost:4200/
 
 ##  Login Credentials
-- **userName:  admin
-- **password:  123456
+- userName:  admin
+- password:  123456
 
 
 

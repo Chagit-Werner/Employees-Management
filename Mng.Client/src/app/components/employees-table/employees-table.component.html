@@ -1,0 +1,74 @@
+<div class="card">
+    <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                (click)="openNew()">
+            </button>
+            <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"
+                (click)="deleteSelectedEmployees()" [disabled]="!selectedEmployees || !selectedEmployees.length">
+            </button>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+            <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload> -->
+            <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"
+                (click)="exportToExcel()">
+            </button> 
+            <button pButton icon="pi pi-sign-in" label="Login"  routerLink="/login" ></button>
+            <button pButton icon="pi pi-sign-out" label="Logout" (click)="logout()" ></button>
+        </ng-template>
+
+    </p-toolbar>
+
+    <p-table #dt [value]="filteredEmployees" [rows]="10" [paginator]="true"
+        [globalFilterFields]="['firstName','lastName','iD_Number','startWorking']" [(selection)]="selectedEmployees"
+        [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h5 class="p-m-0">Manage Employees</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilter($event)" placeholder="Search..." />
+
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                </th>
+                <th pSortableColumn="iD_Number">ID number <p-sortIcon field="iD_Number"></p-sortIcon></th>
+                <th pSortableColumn="firstName">First Name <p-sortIcon field="firstName"></p-sortIcon></th>
+                <th pSortableColumn="lastName">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+                <th pSortableColumn="startWorking">Start Working <p-sortIcon field="startWorking"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="employee"></p-tableCheckbox>
+                </td>
+                <td>{{employee.iD_Number}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.startWorking | date}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                        (click)="editEmployee(employee)">
+                    </button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        (click)="deleteEmployee(employee)">
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                In total there are {{employees ? employees.length : 0 }} employees.
+            </div>
+        </ng-template>
+    </p-table>
+
+</div>

@@ -1,0 +1,43 @@
+
+   <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <p-panel header="Login">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Login: 
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="text" formControlName="name" class="form-control" name="login">
+                </div>
+                <div class="ui-grid-col-4">
+                    <div *ngIf="loginForm.controls['name'].invalid && loginForm.controls['name'].dirty || (loginForm.controls['name'].touched)" class="alert alert-danger">
+                        <p *ngIf="loginForm.controls['name'].hasError('required')">Login is required</p>
+                        <p *ngIf="loginForm.controls['name'].hasError('minlength')">Login must be at least 2 characters long</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Password:
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="password" formControlName="password" class="form-control" name="password">
+                </div>
+                <div class="ui-grid-col-4">
+                    <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert alert-danger">
+                        <p *ngIf="loginForm.controls['password'].hasError('required')">Password is required
+                        </p>
+                        <p *ngIf="loginForm.controls['password'].hasError('minlength')">Password must be at least 4 characters long</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2"></div>
+                <div class="ui-grid-col-6">
+                    <button pButton type="submit" label="Submit" [disabled]="!loginForm.valid"></button>
+                </div>
+                <div class="ui-grid-col-4"></div>
+            </div>
+        </div>
+    </p-panel>
+</form>

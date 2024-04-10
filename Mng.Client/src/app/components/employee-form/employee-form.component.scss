@@ -1,0 +1,39 @@
+
+.form-container {
+  margin: 20px;
+  height: calc(100vh - 40px); /* Adjusted to fill the viewport height */
+  overflow-y: auto; /* Added to enable vertical scrolling if the content exceeds viewport height */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  width: calc(33.333% - 10px);
+}
+
+.position-container {
+  margin-top: 20px;
+}
+
+.position-card {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.position-add-button {
+  margin-top: 15px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.p-dialog-mask.p-component-overlay.p-component-overlay-enter.p-dialog-mask-scrollblocker
+{
+  z-index: 999;
+}

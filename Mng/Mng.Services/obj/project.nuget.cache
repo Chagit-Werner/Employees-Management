@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "0cJH8QzrW4WDdj0zPHdSWMx83EFYxDSx0be/cDIAy19NQtJtaIygS5TXqk7JGFEhy57+m2ESxmMnkinQzgvizg==",
+  "success": true,
+  "projectFilePath": "C:\\CHAGIT\\studies\\ו סמינר בסד\\Practicum\\Mng\\Mng.Services\\Mng.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user1\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

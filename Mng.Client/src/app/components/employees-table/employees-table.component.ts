@@ -14,9 +14,8 @@ import { constant } from '../../../constant';
 import { EmployeeService } from '../../services/employee.service';
 import { EmployeeFormService } from '../../services/employee-form.service';
 import { Employee } from '../../models/employee.model';
-
-
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
+
 
 
 @Component({
@@ -60,6 +59,7 @@ export class EmployeeTableComponent {
       .subscribe({
         next: (res) => {
           this.employees = res;
+          //מעבירים את התוצאה לרשימה נוספת שלמעשה היא  זאת שתוצג בטבלה
           this.filteredEmployees = [...this.employees]
 
         },
@@ -68,13 +68,13 @@ export class EmployeeTableComponent {
         }
       });
   }
+
   logout() {
     sessionStorage.clear();
     this.router.navigate(['/home'])
   }
 
   openDialog(employee: Employee | undefined) {
-    console.log("Employee!!!", employee);
     let ref = this.dialogService.open(
       EmployeeFormComponent, {
       data: {
@@ -85,7 +85,6 @@ export class EmployeeTableComponent {
     })
   }
 
-
   openNew() {
     this.openDialog(undefined);
   }
@@ -95,24 +94,23 @@ export class EmployeeTableComponent {
     this.openDialog(e)
   }
 
-  deleteEmployee(product: Employee,) {
+  deleteEmployee(employee: Employee) {
     this.confirmationService.confirm({
-      message: 'Are you sure you want to delete ' + product.firstName + " " + product.lastName + '?',
+      message: 'Are you sure you want to delete ' + employee.firstName + " " + employee.lastName + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.employeeService.deleteEmployee(product.id)
+        this.employeeService.deleteEmployee(employee.id)
           .subscribe({
             next: (res) => {
-              console.log(res);
-              this.filteredEmployees = this.filteredEmployees.filter(employee => employee.id !== product.id);
+              this.filteredEmployees = this.filteredEmployees.filter(e => e.id !== employee.id);
               console.log("Employee deleted successfully.");
             },
             error: (error) => {
               console.error(error);
             }
           });
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
+        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Employee Deleted', life: 3000 });
       }
     });
   }
@@ -123,7 +121,7 @@ export class EmployeeTableComponent {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.employees = this.employees.filter(val => !this.selectedEmployees.includes(val));
+        this.filteredEmployees = this.filteredEmployees.filter(val => !this.selectedEmployees.includes(val));
         this.selectedEmployees.forEach(employee => {
           this.deleteEmployee(employee);
         });
@@ -134,7 +132,6 @@ export class EmployeeTableComponent {
   }
 
   exportToExcel(): void {
-
     const data = this.employees.map(employee => ({
       Id_Nmber: employee.iD_Number,
       FirstName: employee.firstName,

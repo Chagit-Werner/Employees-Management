@@ -21,7 +21,8 @@
     </p-toolbar>
 
     <p-table #dt [value]="filteredEmployees" [rows]="10" [paginator]="true"
-        [globalFilterFields]="['firstName','lastName','iD_Number','startWorking']" [(selection)]="selectedEmployees"
+        [globalFilterFields]="['firstName','lastName','iD_Number','startWorking']" 
+        [tableStyle]="{'min-width': '75rem'}" [(selection)]="selectedEmployees"
         [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
@@ -33,6 +34,7 @@
 
                 </span>
             </div>
+            
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
@@ -61,6 +63,7 @@
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
                         (click)="deleteEmployee(employee)">
                     </button>
+                   
                 </td>
             </tr>
         </ng-template>
@@ -72,3 +75,6 @@
     </p-table>
 
 </div>
+
+<!-- בשביל הודעת אישור המחיקה שנפתחת -->
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> 

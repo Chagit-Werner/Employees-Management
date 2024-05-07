@@ -65,6 +65,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     ConfirmDialogModule,
     InputTextareaModule
   ]
+  
 
 })
 export class PrimeNgModule {}

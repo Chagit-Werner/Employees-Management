@@ -29,6 +29,7 @@ export class LoginComponent {
       "name": new FormControl("", [Validators.required, Validators.minLength(2)]),
       "password": new FormControl("", [Validators.required, Validators.minLength(4)]),
     });
+    alert(" datails to login: user name: admin. password: 123456")
   }
 
   async login(): Promise<void> {

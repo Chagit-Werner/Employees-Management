@@ -15,7 +15,7 @@ The application utilizes various external libraries, including PrimeNg  to enhan
 
 ## Technologies Used
 
-**Frontend**: Angular17
+- **Frontend**: Angular17
 - **Backend**: .NET Core
 - **Database**: SQL Server
 - **Design Libraries**: PrimeNG
@@ -25,7 +25,7 @@ The application utilizes various external libraries, including PrimeNg  to enhan
 ## Usage
 
 
-1. -  **Clone** Clone the repository to your local machine:
+1.  **Clone** Clone the repository to your local machine:
   ```bash
    https://github.com/Chagit-Werner/Employees-Management/
 ```
@@ -37,11 +37,16 @@ update-database
 
 3. **Run the Server**: After updating the database, run the server.
 
-4. - Navigate to the client project directory. 
-5. - Install the necessary dependencies by : npm install
-6. - Run the frontend server : ng s -o
-
-7. Access the application through your web browser. http://localhost:4200/
+4.  Navigate to the client project directory. 
+5. **Install Dependencies**: Install the necessary dependencies
+  ```bash
+  npm install
+```
+6.  Run the frontend server 
+ ```bash
+ng s -o
+```
+7. Access the application through your web browser at: http://localhost:4200/
 
 
 ##  Login Credentials

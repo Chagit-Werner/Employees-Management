@@ -1,13 +1,10 @@
 # Employee Management Application
 
-![Employees Management]
-
 ## Description
 
 This is an employee management application built using Angular for the frontend and .NET Core for the backend. The application allows the admin to manage employee data, including adding, editing, and deleting employees.
 
-The application utilizes various external libraries, including Angular Material  to enhance its user interface and provide a visually appealing experience.
-
+The application utilizes various external libraries, including PrimeNg  to enhance its user interface and provide a visually appealing experience.
 
 ## Features
 
@@ -18,38 +15,34 @@ The application utilizes various external libraries, including Angular Material 
 
 ## Technologies Used
 
-- **Frontend**: Angular
+**Frontend**: Angular17
 - **Backend**: .NET Core
 - **Database**: SQL Server
-- **Design Libraries**:
-  - Angular Material
-  -PrimeNg
+- **Design Libraries**: PrimeNG
+ 
 
 
 ## Usage
 
 
-1. Clone the repository to your local machine:
+1. -  **Clone** Clone the repository to your local machine:
+  ```bash
+   https://github.com/Chagit-Werner/Employees-Management/
+```
+2. **Database Setup**: Open the solution in Visual Studio. In the Package Manager Console, run the following command to update the database:
 
-git clone https://github.com/Chagit-Werner/Employees-Management
-   
+```bash
+update-database
+```
 
-2. Navigate to the cliemt project directory.
-3. Install the necessary dependencies
+3. **Run the Server**: After updating the database, run the server.
 
-npm install
+4. - Navigate to the client project directory. 
+5. - Install the necessary dependencies by : npm install
+6. - Run the frontend server : ng s -o
 
-4. Run the frontend server.
+7. Access the application through your web browser. http://localhost:4200/
 
-ng s -o
-   
-5. Run the backend server.
-
-6. Access the application through your web browser.
-
-   
-
-http://localhost:4200/
 
 ##  Login Credentials
 - userName:  admin
